@@ -1,0 +1,25 @@
+{
+  "name": "osa13",
+  "version": "1.0.0",
+  "description": "Backend application for the Full Stack Open course, part 13.",
+  "homepage": "https://github.com/waali81/osa13#readme",
+  "bugs": {
+    "url": "https://github.com/waali81/osa13/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waali81/osa13.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "pg": "^8.23.1",
+    "sequelize": "^6.37.8"
+  }
+}

@@ -1,10 +1,9 @@
-### Luo käyttäjä
 POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "username": "testuser",
-  "name": "Test User",
+  "username": "testi@example.com",
+  "name": "Second User",
   "password": "secret"
 }
 
@@ -21,3 +20,13 @@ Content-Type: application/json
 
 ### Hae yksittäinen käyttäjä
 GET http://localhost:3001/api/users/1
+
+### Virheellinen sähköposti
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "username": "ei-sahkoposti",
+  "name": "Test User",
+  "password": "secret"
+}

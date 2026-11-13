@@ -1,0 +1,23 @@
+### Luo käyttäjä
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "name": "Test User",
+  "password": "secret"
+}
+
+### Hae kaikki käyttäjät
+GET http://localhost:3001/api/users
+
+### Muuta käyttäjän nimeä
+PUT http://localhost:3001/api/users/testuser
+Content-Type: application/json
+
+{
+  "name": "Updated Test User"
+}
+
+### Hae yksittäinen käyttäjä
+GET http://localhost:3001/api/users/1

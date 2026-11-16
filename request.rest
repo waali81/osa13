@@ -30,3 +30,13 @@ Content-Type: application/json
   "name": "Test User",
   "password": "secret"
 }
+
+### kirjautumisen testausta
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "secret"
+}
+

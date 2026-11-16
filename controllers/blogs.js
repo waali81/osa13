@@ -30,7 +30,6 @@ const blogFinder = async (req, res, next) => {
 }
 
 router.get('/', async (req, res) => {
-  /* const blogs = await Blog.findAll() */
   const blogs = await Blog.findAll({
     attributes: {
       exclude: ['userId']
@@ -45,7 +44,6 @@ router.get('/', async (req, res) => {
 
 router.post('/', tokenExtractor, async (req, res, next) => {
   try {
-    /* const blog = await Blog.create(req.body) */
     const user = await User.findByPk(req.decodedToken.id)
     if (!user) {
       return res.status(401).json({ error: 'user not found' })
@@ -67,7 +65,12 @@ router.put('/:id', blogFinder, async (req, res, next) => {
   }
 })
 
-router.delete('/:id', blogFinder, async (req, res) => {
+router.delete('/:id', tokenExtractor, blogFinder, async (req, res) => {
+  if (req.blog.userId !== req.decodedToken.id) {
+    return res.status(403).json({
+      error: 'only the user who added the blog can delete it'
+    })
+  }
   await req.blog.destroy()
   res.status(204).end()
 })

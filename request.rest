@@ -46,14 +46,26 @@ DELETE http://localhost:3001/api/blogs/7
 ###  blogin lisäys
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer xxxxx
+Authorization: Bearer 
 {
   "author": "Uusi Käyttäjä",
-  "title": "My First Blog",
+  "title": "My Second Blog",
   "url": "https://example.com/my-first-blog",
-  "likes": 0
+  "likes": 10
 }
 
 ### delete
 DELETE http://localhost:3001/api/blogs/9
 Authorization: Bearer xxxxx
+
+###blogin lisäys
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RpQGV4YW1wbGUuY29tIiwiaWQiOjcsImlhdCI6MTc5NDkxMTQxMH0.vg_cR8RNr2xCzn3GLUNS4cgZPktCual4gegGNybv9hg
+
+{
+  "author": "Test Author",
+  "url": "https://example.com/test-blog",
+  "title": "Testing blog ordering",
+  "likes": 10
+}

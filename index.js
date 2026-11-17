@@ -28,12 +28,6 @@ app.use((error, req, res, next) => {
   res.status(400).json({ error: 'something went wrong' })
 })
 
-/* const start = async () => {
-  await connectToDatabase()
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
-  })
-} */
 const start = async () => {
   await connectToDatabase()
   await syncModels()

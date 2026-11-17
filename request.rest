@@ -46,8 +46,7 @@ DELETE http://localhost:3001/api/blogs/7
 ###  blogin lisäys
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RpQGV4YW1wbGUuY29tIiwiaWQiOjcsImlhdCI6MTc5NDgyNzQ4MH0.525NN1LSgQeQkDVOkorb0vHRqUwVa7_Vn9X-mcCJs3I
-
+Authorization: Bearer xxxxx
 {
   "author": "Uusi Käyttäjä",
   "title": "My First Blog",
@@ -57,4 +56,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc
 
 ### delete
 DELETE http://localhost:3001/api/blogs/9
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InV1c2lAZXhhbXBsZS5jb20iLCJpZCI6OSwiaWF0IjoxNzk0ODI3MTAxfQ.xJPHtvntIUM-QcFaFDu2IqLJAACR8OX3sjgYPKpLKaM
+Authorization: Bearer xxxxx

@@ -16,7 +16,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:test": "cross-env TESTING=true node index.js",
+    "test": "cross-env TESTING=true node --test --test-concurrency=1 tests/api_ch3.test.js"
   },
   "dependencies": {
     "dotenv": "^18.0.10",
@@ -24,5 +25,9 @@
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.23.1",
     "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "axios": "^1.21.1",
+    "cross-env": "^10.1.0"
   }
 }

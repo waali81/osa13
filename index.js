@@ -6,7 +6,7 @@ const blogsRouter = require('./controllers/blogs')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const authorsRouter = require('./controllers/authors')
-const { syncModels } = require('./models')
+const { Blog, User, syncModels } = require('./models')
 
 app.use(express.json())
 
@@ -14,6 +14,21 @@ app.use('/api/blogs', blogsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/authors', authorsRouter)
+
+app.post('/api/reset', async (req, res, next) => {
+  try {
+    await Blog.destroy({ where: {} })
+    await User.destroy({ where: {} })
+
+    res.status(204).end()
+  } catch (error) {
+    next(error)
+  }
+})
+
+app.get('/', (req, res) => {
+  res.sendStatus(200)
+})
 
 app.use((error, req, res, next) => {
   console.error(error.message)

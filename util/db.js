@@ -7,7 +7,7 @@ const {
   DB_PORT
 } = require('./config')
 
-const sequelize = new Sequelize(
+/* const sequelize = new Sequelize(
   DB_NAME,
   DB_USER,
   DB_PASSWORD,
@@ -16,7 +16,21 @@ const sequelize = new Sequelize(
     port: DB_PORT,
     dialect: 'postgres'
   }
-)
+) */
+const sequelize = process.env.TESTING === 'true'
+  ? new Sequelize(process.env.TEST_DATABASE_URL, {
+      dialect: 'postgres'
+    })
+  : new Sequelize(
+      DB_NAME,
+      DB_USER,
+      DB_PASSWORD,
+      {
+        host: DB_HOST,
+        port: DB_PORT,
+        dialect: 'postgres'
+      }
+    )
 
 const connectToDatabase = async () => {
   try {

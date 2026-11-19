@@ -1,12 +1,12 @@
 const express = require('express')
 const app = express()
 const { PORT } = require('./util/config')
-const { connectToDatabase } = require('./util/db')
+const { connectToDatabase, runMigrations } = require('./util/db')
 const blogsRouter = require('./controllers/blogs')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const authorsRouter = require('./controllers/authors')
-const { Blog, User, syncModels } = require('./models')
+const { Blog, User } = require('./models')
 
 app.use(express.json())
 
@@ -47,7 +47,7 @@ app.use((error, req, res, next) => {
 
 const start = async () => {
   await connectToDatabase()
-  await syncModels()
+  await runMigrations()
 
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)

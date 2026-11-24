@@ -7,7 +7,8 @@ const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const authorsRouter = require('./controllers/authors')
 const readinglistsRouter = require('./controllers/readinglists')
-const { Blog, User } = require('./models')
+const { Blog, User, Session } = require('./models')
+const { tokenExtractor } = require('./util/middleware')
 
 app.use(express.json())
 
@@ -30,6 +31,20 @@ app.post('/api/reset', async (req, res, next) => {
 
 app.get('/', (req, res) => {
   res.sendStatus(200)
+})
+
+app.delete('/api/logout', tokenExtractor, async (req, res, next) => {
+  try {
+    const token = req.get('authorization').substring(7)
+
+    await Session.destroy({
+      where: { token }
+    })
+
+    res.status(204).end()
+  } catch (error) {
+    next(error)
+  }
 })
 
 app.use((error, req, res, next) => {

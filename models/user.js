@@ -24,6 +24,10 @@ User.init({
     validate: {
       notEmpty: true
     }
+  },
+  disabled: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
   }
 }, {
   sequelize,

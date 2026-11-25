@@ -62,8 +62,7 @@ Authorization: Bearer xxxxx
 ### vuosiluku
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RpQGV4YW1wbGUuY29tIiwiaWQiOjEsImlhdCI6MTc5NTA3NzAwMn0.vKT2ai4CiZSJbj2ofYCg7IJAxGOkZV5Z8_0X6TjmJow
-
+Authorization: Bearer xxxxx
 {
   "title": "Testing year validation",
   "author": "Test Author",
@@ -86,8 +85,7 @@ GET http://localhost:3001/api/users/1
 ### luo blogi
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RpQGV4YW1wbGUuY29tIiwiaWQiOjEsImlhdCI6MTc5NTE2NDIyNn0.fV6A_EH1xe7jxEDIcZQafqj6ZdIuU-SMZt_L4zSyhwM
-
+Authorization: Bearer xxxxx
 {
   "author": "Another Test Author",
   "url": "https://example.com/another-blog",
@@ -101,7 +99,7 @@ GET http://localhost:3001/api/blogs
 
 ### Merkitse lukulistan blogi luetuksi
 PUT http://localhost:3001/api/readinglists/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RpQGV4YW1wbGUuY29tIiwiaWQiOjEsImlhdCI6MTc5NTQyNDQ4Mn0.FKQ7v56yO5Uy9GHqSKVDEXMd2ZvoI0ZDplGTlgp4nwQ
+Authorization: Bearer xxxxx
 Content-Type: application/json
 
 {
@@ -110,7 +108,7 @@ Content-Type: application/json
 
 ### Yritä muuttaa toisen käyttäjän lukulistaa
 PUT http://localhost:3001/api/readinglists/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvaW5lbkBleGFtcGxlLmNvbSIsImlkIjoyLCJpYXQiOjE3OTU0MjQ4MDB9.ASEcTsLBFlL4GVLd-ubIm8bkQgY6cX6Pb1OXQs__ci4
+Authorization: Bearer xxxxx
 Content-Type: application/json
 
 {
@@ -119,12 +117,12 @@ Content-Type: application/json
 
 ### Logout
 DELETE http://localhost:3001/api/logout
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RpQGV4YW1wbGUuY29tIiwiaWQiOjEsImlhdCI6MTc5NTUwNTA4NX0.604MGXh3nOdlNr6Rek1lt4okOqMcmKWB3AJIvEW21OE
+Authorization: Bearer xxxxx
 
 ### Vanhentunut token
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RpQGV4YW1wbGUuY29tIiwiaWQiOjEsImlhdCI6MTc5NTUwNTA4NX0.604MGXh3nOdlNr6Rek1lt4okOqMcmKWB3AJIvEW21OE
+Authorization: Bearer xxxxx
 
 {
   "title": "Test after logout",
@@ -135,7 +133,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc
 ### Estetty käyttäjä voimassaolevalla tokenilla
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RpQGV4YW1wbGUuY29tIiwiaWQiOjEsImlhdCI6MTc5NTUwNjQ0OH0.QMebFJoicpaK4uhAJJe3Ln9zouFx0Apmw2faX7Lf0qI
+Authorization: Bearer xxxxx
 
 {
   "title": "Test disabled user",

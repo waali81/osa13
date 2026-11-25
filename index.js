@@ -7,7 +7,7 @@ const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const authorsRouter = require('./controllers/authors')
 const readinglistsRouter = require('./controllers/readinglists')
-const { Blog, User, Session } = require('./models')
+const { Blog, User, Session, ReadingList } = require('./models')
 const { tokenExtractor } = require('./util/middleware')
 
 app.use(express.json())
@@ -20,6 +20,8 @@ app.use('/api/readinglists', readinglistsRouter)
 
 app.post('/api/reset', async (req, res, next) => {
   try {
+    await ReadingList.destroy({ where: {} })
+    await Session.destroy({ where: {} })
     await Blog.destroy({ where: {} })
     await User.destroy({ where: {} })
 

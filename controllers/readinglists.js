@@ -5,6 +5,10 @@ const { Blog, User, ReadingList } = require('../models')
 
 router.post('/', async (req, res, next) => {
   try {
+    if (!req.body.userId || !req.body.blogId) {
+      return res.status(400).json({ error: 'userId and blogId are required' })
+    }
+
     const user = await User.findByPk(req.body.userId)
 
     if (!user) {
@@ -15,6 +19,17 @@ router.post('/', async (req, res, next) => {
 
     if (!blog) {
       return res.status(404).json({ error: 'blog not found' })
+    }
+
+    const existingEntry = await ReadingList.findOne({
+      where: {
+        userId: req.body.userId,
+        blogId: req.body.blogId
+      }
+    })
+
+    if (existingEntry) {
+      return res.status(400).json({ error: 'blog already in reading list' })
     }
 
     const readingList = await ReadingList.create({
@@ -37,7 +52,7 @@ router.put('/:id', tokenExtractor, async (req, res, next) => {
     }
 
     if (readingList.userId !== req.decodedToken.id) {
-      return res.status(403).json({ error: 'only the user who added the blog can mark it as read' })
+      return res.status(401).json({ error: 'only the user who added the blog can mark it as read' })
     }
 
     readingList.read = req.body.read

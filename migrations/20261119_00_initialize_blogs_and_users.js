@@ -1,3 +1,4 @@
+const { Sequelize } = require('sequelize')
 
 module.exports = {
   up: async ({ context: queryInterface }) => {
@@ -72,5 +73,3 @@ module.exports = {
     await queryInterface.dropTable('users')
   }
 }
-
-const { Sequelize } = require('sequelize')
